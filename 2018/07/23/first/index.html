@@ -10,20 +10,20 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="" />
+        <meta name="keywords" content="typescript" />
     
-    <meta name="description" content="养成码字记录的习惯哦~~">
-<meta name="keywords" content="思密达 simida blog Harvey nanqiang lin">
+    <meta name="description" content="从事前端工作两年出了，还没怎么写过博客，很是惭愧啊~~所以感觉总是自己的技术进步不大呐！现在开始，使用 github 搞一个个人博客吧！用于记录日常点点… So let’s begin今天先写一些 typescript 的学习笔记">
+<meta name="keywords" content="typescript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="first">
 <meta property="og:url" content="http://yoursite.com/2018/07/23/first/index.html">
 <meta property="og:site_name" content="思密达的 blog">
-<meta property="og:description" content="养成码字记录的习惯哦~~">
+<meta property="og:description" content="从事前端工作两年出了，还没怎么写过博客，很是惭愧啊~~所以感觉总是自己的技术进步不大呐！现在开始，使用 github 搞一个个人博客吧！用于记录日常点点… So let’s begin今天先写一些 typescript 的学习笔记">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-23T13:53:08.634Z">
+<meta property="og:updated_time" content="2018-07-23T16:58:19.339Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="first">
-<meta name="twitter:description" content="养成码字记录的习惯哦~~">
+<meta name="twitter:description" content="从事前端工作两年出了，还没怎么写过博客，很是惭愧啊~~所以感觉总是自己的技术进步不大呐！现在开始，使用 github 搞一个个人博客吧！用于记录日常点点… So let’s begin今天先写一些 typescript 的学习笔记">
     
 
     
@@ -77,7 +77,7 @@
                                     <a class="main-nav-list-link" href="/">主页</a>
                                 </li>
                             
-                                        
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/hello/">hello</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/纳尼/">纳尼</a></li></ul>
                                     
                                 <li class="main-nav-list-item" >
                                     <a class="main-nav-list-link" href="/about/index.html">关于</a>
@@ -136,7 +136,7 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    未分类
+    <a class="page-title-link" href="/categories/纳尼/">纳尼</a>
     </h1>
 </div>
                         <div class="main-body-content">
@@ -163,76 +163,58 @@
     </div>
 
                 
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/typescript/">typescript</a>
+    </div>
+
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            
+            <p>从事前端工作两年出了，还没怎么写过博客，很是惭愧啊~~<br>所以感觉总是自己的技术进步不大呐！<br>现在开始，使用 github 搞一个个人博客吧！用于记录日常点点…</p>
+<h1 id="So-let’s-begin"><a href="#So-let’s-begin" class="headerlink" title="So let’s begin"></a>So let’s begin</h1><p>今天先写一些 typescript 的学习笔记</p>
+
         </div>
         <footer class="article-footer">
             
 
-
-
-    <a data-url="http://yoursite.com/2018/07/23/first/" data-id="cjjyfpfce0001b8uxzbx7qq48" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more">分享到：</a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
+    <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a>
+    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a>
+</div>
 <script>
-    (function ($) {
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
+window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
 </script>
+<style>
+    .bdshare_popup_box {
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .bdshare-button-style0-16 a,
+    .bdshare-button-style0-16 .bds_more {
+        padding-left: 20px;
+        margin: 6px 10px 6px 0;
+    }
+    .bdshare_dialog_list a,
+    .bdshare_popup_list a,
+    .bdshare_popup_bottom a {
+        font-family: 'Microsoft Yahei';
+    }
+    .bdshare_popup_top {
+        display: none;
+    }
+    .bdshare_popup_bottom {
+        height: auto;
+        padding: 5px;
+    }
+</style>
+
+
 
         </footer>
     </div>
@@ -347,7 +329,7 @@
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/纳尼/">纳尼</a></p>
                             <p class="item-title"><a href="/2018/07/23/first/" class="title">first</a></p>
                             <p class="item-date"><time datetime="2018-07-23T13:53:08.000Z" itemprop="datePublished">2018-07-23</time></p>
                         </div>
@@ -367,7 +349,7 @@
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/hello/">hello</a></p>
                             <p class="item-title"><a href="/2018/07/23/hello-world/" class="title">Hello World</a></p>
                             <p class="item-date"><time datetime="2018-07-23T13:43:21.214Z" itemprop="datePublished">2018-07-23</time></p>
                         </div>
@@ -379,6 +361,13 @@
 
             
                 
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hello/">hello</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/纳尼/">纳尼</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
 
             
                 
@@ -392,9 +381,23 @@
 
             
                 
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/typescript/">typescript</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
 
             
                 
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/typescript/" style="font-size: 10px;">typescript</a>
+        </div>
+    </div>
+
 
             
                 
@@ -402,10 +405,6 @@
         <h3 class="widget-title">链接</h3>
         <div class="widget">
             <ul>
-                
-                    <li>
-                        <a href="http://hexo.io">Hexo</a>
-                    </li>
                 
             </ul>
         </div>
