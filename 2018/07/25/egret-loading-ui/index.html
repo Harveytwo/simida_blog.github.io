@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>egret_loading_ui | 思密达的 blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="egret,typescript" />
+    
+    <meta name="description" content="egret 自定义 loading目录创建项目自定义 loading ui 创建项目和项目结构使用 egretLauncher 创建项目（这里是 game 项目的学习，不怎么使用 eui 项目），项目名 aaa 一般中文名（做个称职的程序员，避免使用中文名）。 项目结构如下： 熟悉重要目录的作用，  tsconfig.json 文件是 typescript 编译的配置 egretPropertie">
+<meta name="keywords" content="egret,typescript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="egret_loading_ui">
+<meta property="og:url" content="http://yoursite.com/2018/07/25/egret-loading-ui/index.html">
+<meta property="og:site_name" content="思密达的 blog">
+<meta property="og:description" content="egret 自定义 loading目录创建项目自定义 loading ui 创建项目和项目结构使用 egretLauncher 创建项目（这里是 game 项目的学习，不怎么使用 eui 项目），项目名 aaa 一般中文名（做个称职的程序员，避免使用中文名）。 项目结构如下： 熟悉重要目录的作用，  tsconfig.json 文件是 typescript 编译的配置 egretPropertie">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/egret_loading_ui/01.png">
+<meta property="og:updated_time" content="2018-07-25T16:07:23.324Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="egret_loading_ui">
+<meta name="twitter:description" content="egret 自定义 loading目录创建项目自定义 loading ui 创建项目和项目结构使用 egretLauncher 创建项目（这里是 game 项目的学习，不怎么使用 eui 项目），项目名 aaa 一般中文名（做个称职的程序员，避免使用中文名）。 项目结构如下： 熟悉重要目录的作用，  tsconfig.json 文件是 typescript 编译的配置 egretPropertie">
+<meta name="twitter:image" content="http://yoursite.com/images/egret_loading_ui/01.png">
+    
+
+    
+        <link rel="alternate" href="/" title="思密达的 blog" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">nanqiang 记录点滴思密达</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">主页</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/egret/">egret</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/什么/">什么</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/什么/纳尼/">纳尼</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">关于</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/egret/">egret</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-egret-loading-ui" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        egret_loading_ui
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2018/07/25/egret-loading-ui/" class="article-date">
+            <time datetime="2018-07-25T15:33:37.000Z" itemprop="datePublished">2018-07-25</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/egret/">egret</a>, <a class="tag-link" href="/tags/typescript/">typescript</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h1 id="egret-自定义-loading"><a href="#egret-自定义-loading" class="headerlink" title="egret 自定义 loading"></a>egret 自定义 loading</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p><a href="#create_game">创建项目</a><br><a href="#user_loading">自定义 loading ui</a></p>
+<p></p><h2 id="create_game">创建项目和项目结构</h2><br>使用 egretLauncher 创建项目（这里是 game 项目的学习，不怎么使用 eui 项目），项目名 aaa 一般中文名（做个称职的程序员，避免使用中文名）。<p></p>
+<p>项目结构如下：<br><img src="../../../../images/egret_loading_ui/01.png" alt="项目结构" width="150px"></p>
+<p>熟悉重要目录的作用，</p>
+<ol>
+<li>tsconfig.json 文件是 typescript 编译的配置</li>
+<li>egretProperties.json 文件是 egret 项目的相关配置，如：引擎版本、发布为微信小游戏（wxgame）或 h5（web） 的配置、项目引用的模块（modules）配置等</li>
+<li>index.html 文件是项目的 html 文件，可以更改游戏 canvas 的大小、canvas 的适配模式（小游戏不支持 showAll 可以改为 fixedWidth ）、canvas 的方向、游戏的帧数、是否开启 fps 和 log（左上角显示）等</li>
+<li>libs 目录是我们项目需要用到的一些库，如：p2.js 物理引擎、dragonbones 库等</li>
+<li>resource 目录是放置静态资源</li>
+<li>src 目录是我们主要阵地，写代码一般都在这里写 </li>
+</ol>
+<p></p><h2 id="user_loading">自定义 loading ui</h2><br>egret 创建了项目，egret run 就可以运行项目。<br>开始 src 目录下有 3 个文件（ LoadingUI.ts, Main.ts, Platform.ts ），Main.ts 是项目的主入口，LoadingUI.ts 是 loading ui 的页面，所以要自定义就在这里修改，Platform.ts 平台数据接口，这个没管过。<br>更改 LoadingUI.ts<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a = 88;</span><br><span class="line">console.log(a)</span><br></pre></td></tr></table></figure><p></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br></pre></td><td class="code"><pre><span class="line">class LoadingUI extends egret.Sprite implements RES.PromiseTaskReporter &#123;</span><br><span class="line"></span><br><span class="line">  public constructor() &#123;</span><br><span class="line">      super();</span><br><span class="line">      this.createView();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  private textField: egret.TextField;</span><br><span class="line"></span><br><span class="line">  private uiContainer: egret.DisplayObjectContainer;</span><br><span class="line">  private img_loadingBg: egret.Bitmap;</span><br><span class="line">  private img_loading0: egret.Bitmap;</span><br><span class="line">  private img_loading1: egret.Bitmap;</span><br><span class="line">  private loadingBg = &quot;resource/assets/bg.jpg&quot;;    //加载页面背景</span><br><span class="line">  private loading0 = &quot;resource/mySources/loadingCar.png&quot;; //进度条的条</span><br><span class="line">  private loading1 = &quot;resource/mySources/timenumBg.png&quot;;  //进度条的 条背景 </span><br><span class="line">  private w: number;</span><br><span class="line">  private h: number;</span><br><span class="line">  private r: number;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  private createView(): void &#123;</span><br><span class="line">      this.textField = new egret.TextField();</span><br><span class="line">      // this.addChild(this.textField);</span><br><span class="line">      this.textField.y = 300;</span><br><span class="line">      this.textField.width = 480;</span><br><span class="line">      this.textField.height = 100;</span><br><span class="line">      this.textField.textAlign = &quot;center&quot;;</span><br><span class="line"></span><br><span class="line">      this.w = egret.Capabilities.boundingClientWidth;  //设备的宽</span><br><span class="line">      this.h = egret.Capabilities.boundingClientHeight;</span><br><span class="line">      // 加载背景图片</span><br><span class="line">      var urlLoader: egret.URLLoader = new egret.URLLoader();</span><br><span class="line">      urlLoader.addEventListener(egret.Event.COMPLETE, this.onComplete, this);</span><br><span class="line">      urlLoader.dataFormat = egret.URLLoaderDataFormat.TEXTURE;</span><br><span class="line">      urlLoader.load(new egret.URLRequest(this.loadingBg));</span><br><span class="line">  // 加载进度条</span><br><span class="line">      var urlLoader: egret.URLLoader = new egret.URLLoader();</span><br><span class="line">      urlLoader.addEventListener(egret.Event.COMPLETE, this.onComplete, this);</span><br><span class="line">      urlLoader.dataFormat = egret.URLLoaderDataFormat.TEXTURE;</span><br><span class="line">      urlLoader.load(new egret.URLRequest(this.loading0));</span><br><span class="line">  // 加载进度条背景</span><br><span class="line">      var urlLoader: egret.URLLoader = new egret.URLLoader();</span><br><span class="line">      urlLoader.addEventListener(egret.Event.COMPLETE, this.onComplete, this);</span><br><span class="line">      urlLoader.dataFormat = egret.URLLoaderDataFormat.TEXTURE;</span><br><span class="line">      urlLoader.load(new egret.URLRequest(this.loading1));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      this.img_loadingBg = new egret.Bitmap();</span><br><span class="line">      this.img_loading0 = new egret.Bitmap();</span><br><span class="line">      this.img_loading1 = new egret.Bitmap();</span><br><span class="line">      </span><br><span class="line">      this.uiContainer = new egret.DisplayObjectContainer();</span><br><span class="line">      this.addChild(this.uiContainer);</span><br><span class="line"></span><br><span class="line">      this.addChildAt(this.img_loadingBg, 0);</span><br><span class="line">      this.addChild(this.img_loading0);</span><br><span class="line">      this.addChild(this.img_loading1);</span><br><span class="line">      this.addChild(this.textField);</span><br><span class="line">  &#125;</span><br><span class="line">// 加载完图片进行操作，贴图到 canvas 上</span><br><span class="line">  private onComplete(e: egret.Event) &#123;</span><br><span class="line">      var urlLoader: egret.URLLoader = &lt;egret.URLLoader&gt;e.target;</span><br><span class="line">      var texture = urlLoader.data;</span><br><span class="line">      if (urlLoader._request.url == this.loadingBg) &#123;</span><br><span class="line">          this.img_loadingBg.texture = texture;</span><br><span class="line">          var bgW = this.img_loadingBg.width;</span><br><span class="line">          var bgH = this.img_loadingBg.height;</span><br><span class="line"></span><br><span class="line">          console.log(bgW + &quot;背景宽&quot;);</span><br><span class="line">          console.log(bgH + &quot;背景高&quot;);</span><br><span class="line">          console.log(this.w + &quot;视口宽&quot;);</span><br><span class="line">          console.log(this.h + &quot;视口高&quot;);</span><br><span class="line">          if (this.w / 640 &lt; this.h / 1136) &#123;</span><br><span class="line">              //W</span><br><span class="line">              this.img_loadingBg.scaleX = 1;</span><br><span class="line">              this.img_loadingBg.scaleY = this.stage.stageHeight / bgH;</span><br><span class="line"></span><br><span class="line">          &#125; else &#123;</span><br><span class="line">              //H</span><br><span class="line">              this.img_loadingBg.scaleY = 1;</span><br><span class="line">              this.img_loadingBg.scaleX = this.stage.stageWidth / bgW;</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">      &#125; else if (urlLoader._request.url == this.loading0) &#123;</span><br><span class="line">          this.img_loading0.scale9Grid = new egret.Rectangle(5, 5, 10, 10);</span><br><span class="line">          this.img_loading0.width = this.stage.stageWidth - 140;</span><br><span class="line">          this.img_loading0.height = 50;</span><br><span class="line"></span><br><span class="line">          this.img_loading0.texture = texture;</span><br><span class="line">          this.img_loading0.anchorOffsetX = this.img_loading0.width * 0.5;</span><br><span class="line">          this.img_loading0.anchorOffsetY = this.img_loading0.height * 0.5;</span><br><span class="line">          this.img_loading0.x = this.stage.stageWidth / 2;</span><br><span class="line">          this.img_loading0.y = this.stage.stageHeight - 100;</span><br><span class="line"></span><br><span class="line">      &#125; else if (urlLoader._request.url == this.loading1) &#123;</span><br><span class="line">          this.img_loading1.scale9Grid = new egret.Rectangle(5, 5, 10, 10);</span><br><span class="line">          this.img_loading1.width = this.stage.stageWidth - 140;</span><br><span class="line">          this.img_loading1.height = 50;</span><br><span class="line"></span><br><span class="line">          this.img_loading1.texture = texture;</span><br><span class="line">          this.img_loading1.anchorOffsetX = this.img_loading1.width * 0.5;</span><br><span class="line">          this.img_loading1.anchorOffsetY = this.img_loading1.height * 0.5;</span><br><span class="line">          this.img_loading1.x = this.stage.stageWidth / 2;</span><br><span class="line">          this.img_loading1.y = this.stage.stageHeight - 100;</span><br><span class="line">          console.log(this.stage.stageWidth + &quot;AAAA&quot; + this.img_loading1.width);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">// 没加载一个文件调用一次 onProgress</span><br><span class="line">  public onProgress(current: number, total: number): void &#123;</span><br><span class="line">      // this.textField.text = `阿西吧Loading...$&#123;current&#125;/$&#123;total&#125;`;</span><br><span class="line">      //进度文字</span><br><span class="line">      this.textField.text = &quot;&quot; + Math.round((current / total) * 100) + &quot;%&quot;;</span><br><span class="line">      //进度条宽度</span><br><span class="line">      if (this.img_loading1 != null) &#123;</span><br><span class="line">          this.img_loading1.width = 400 * (current / total);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>主要是在 createView 方法里面加载图片，然后把 texture 赋值给 Bitmap 就行，进度条的表示在 onProgress 中操作。</p>
+<p><strong>下一篇：游戏场景切换</strong></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://yoursite.com/2018/07/25/egret-loading-ui/" data-id="cjk1bpeot00005oux3lfbbq0a" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>关注我 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="google-plus" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-google-plus"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2018/07/23/first/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">first</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/07/25/egret-loading-ui/" class="thumbnail">
+    
+    
+        <span style="background-image:url(../../../../images/egret_loading_ui/01.png)" alt="egret_loading_ui" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/egret/">egret</a></p>
+                            <p class="item-title"><a href="/2018/07/25/egret-loading-ui/" class="title">egret_loading_ui</a></p>
+                            <p class="item-date"><time datetime="2018-07-25T15:33:37.000Z" itemprop="datePublished">2018-07-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/07/23/first/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/什么/">什么</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/什么/纳尼/">纳尼</a></p>
+                            <p class="item-title"><a href="/2018/07/23/first/" class="title">first</a></p>
+                            <p class="item-date"><time datetime="2018-07-23T13:53:08.000Z" itemprop="datePublished">2018-07-23</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/07/23/hello-world/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/07/23/hello-world/" class="title">Hello World</a></p>
+                            <p class="item-date"><time datetime="2018-07-23T13:43:21.214Z" itemprop="datePublished">2018-07-23</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/egret/">egret</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/什么/">什么</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/什么/纳尼/">纳尼</a><span class="category-list-count">1</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/egret/">egret</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typescript/">typescript</a><span class="tag-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/egret/" style="font-size: 10px;">egret</a> <a href="/tags/typescript/" style="font-size: 20px;">typescript</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 Nanqiang Lin</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://yoursite.com/2018/07/25/egret-loading-ui/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
