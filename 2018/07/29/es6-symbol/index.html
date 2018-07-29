@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>es6_symbol | 思密达的 blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="es6" />
+    
+    <meta name="description" content="ES6 的 原始数据类型Symbol目录概述作为属性名的 Symbol实例：消除魔术字符串属性名的遍历  Symbol 的概述  ES5 的对象属性名都是字符串，这容易造成属性名的冲突。比如，你使用了一个他人提供的对象，但又想为这个对象添加新的方法（mixin 模式），新方法的名字就有可能与现有方法产生冲突。如果有一种机制，保证每个属性的名字都是独一无二的就好了，这样就从根本上防止属性名的冲突。这">
+<meta name="keywords" content="es6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="es6_symbol">
+<meta property="og:url" content="http://yoursite.com/2018/07/29/es6-symbol/index.html">
+<meta property="og:site_name" content="思密达的 blog">
+<meta property="og:description" content="ES6 的 原始数据类型Symbol目录概述作为属性名的 Symbol实例：消除魔术字符串属性名的遍历  Symbol 的概述  ES5 的对象属性名都是字符串，这容易造成属性名的冲突。比如，你使用了一个他人提供的对象，但又想为这个对象添加新的方法（mixin 模式），新方法的名字就有可能与现有方法产生冲突。如果有一种机制，保证每个属性的名字都是独一无二的就好了，这样就从根本上防止属性名的冲突。这">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/es6/es6.jpg">
+<meta property="og:updated_time" content="2018-07-29T15:54:41.568Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="es6_symbol">
+<meta name="twitter:description" content="ES6 的 原始数据类型Symbol目录概述作为属性名的 Symbol实例：消除魔术字符串属性名的遍历  Symbol 的概述  ES5 的对象属性名都是字符串，这容易造成属性名的冲突。比如，你使用了一个他人提供的对象，但又想为这个对象添加新的方法（mixin 模式），新方法的名字就有可能与现有方法产生冲突。如果有一种机制，保证每个属性的名字都是独一无二的就好了，这样就从根本上防止属性名的冲突。这">
+<meta name="twitter:image" content="http://yoursite.com/images/es6/es6.jpg">
+    
+
+    
+        <link rel="alternate" href="/" title="思密达的 blog" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">nanqiang 记录点滴思密达</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">主页</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/egret/">egret</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/js/">js</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/什么/">什么</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/什么/纳尼/">纳尼</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">关于</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/js/">js</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-es6-symbol" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        es6_symbol
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2018/07/29/es6-symbol/" class="article-date">
+            <time datetime="2018-07-29T15:46:50.000Z" itemprop="datePublished">2018-07-29</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/es6/">es6</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h1 id="ES6-的-原始数据类型Symbol"><a href="#ES6-的-原始数据类型Symbol" class="headerlink" title="ES6 的 原始数据类型Symbol"></a>ES6 的 原始数据类型Symbol</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p><a href="#symbol_is">概述</a><br><a href="#symbol_attr_name">作为属性名的 Symbol</a><br><a href="#symbol_magic_str">实例：消除魔术字符串</a><br><a href="#symbol_attr_for">属性名的遍历</a></p>
+<p><img src="../../../../images/es6/es6.jpg" alt="es6" style="width:400px;"></p>
+<h2 id="symbol_is">Symbol 的概述</h2>
+
+<p>ES5 的对象属性名都是<strong>字符串</strong>，这容易造成属性名的<strong>冲突</strong>。比如，你使用了一个他人提供的对象，但又想为这个对象添加新的方法（mixin 模式），新方法的名字就有可能与现有方法产生冲突。如果有一种机制，保证每个<strong>属性的名字</strong>都是<strong>独一无二</strong>的就好了，这样就从根本上<strong>防止属性名的冲突</strong>。这就是 ES6 引入Symbol的原因。</p>
+<p>ES6 引入了一种新的原始数据<strong>类型Symbol</strong>，表示独一无二的值。它是 JavaScript 语言的<strong>第七种数据类型</strong>，前六种是：undefined、null、布尔值（Boolean）、字符串（String）、数值（Number）、对象（Object）。</p>
+<p>Symbol 值通过<strong>Symbol函数生成</strong>。这就是说，对象的属性名现在可以有两种类型，一种是原来就有的字符串，另一种就是新增的 Symbol 类型。凡是属性名属于 Symbol 类型，就都是独一无二的，可以保证不会与其他属性名产生冲突。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> s = <span class="built_in">Symbol</span>();</span><br><span class="line"><span class="keyword">typeof</span> s</span><br><span class="line"><span class="comment">// "symbol"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Symbol函数可以接受一个字符串作为参数，表示对 Symbol 实例的描述，为了在控制台显示，或者转为字符串时，比较容易区分。</span></span><br><span class="line"><span class="keyword">let</span> s1 = <span class="built_in">Symbol</span>(<span class="string">'foo'</span>);</span><br><span class="line"><span class="keyword">let</span> s2 = <span class="built_in">Symbol</span>(<span class="string">'bar'</span>);</span><br><span class="line">s1 <span class="comment">// Symbol(foo)</span></span><br><span class="line">s2 <span class="comment">// Symbol(bar)</span></span><br><span class="line">s1.toString() <span class="comment">// "Symbol(foo)"</span></span><br><span class="line">s2.toString() <span class="comment">// "Symbol(bar)"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Symbol 的返回值时不相等的，只表示当前 Symbol 值的描述</span></span><br><span class="line"><span class="comment">// 没有参数的情况</span></span><br><span class="line"><span class="keyword">let</span> s1 = <span class="built_in">Symbol</span>();</span><br><span class="line"><span class="keyword">let</span> s2 = <span class="built_in">Symbol</span>();</span><br><span class="line">s1 === s2 <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 有参数的情况</span></span><br><span class="line"><span class="keyword">let</span> s1 = <span class="built_in">Symbol</span>(<span class="string">'foo'</span>);</span><br><span class="line"><span class="keyword">let</span> s2 = <span class="built_in">Symbol</span>(<span class="string">'foo'</span>);</span><br><span class="line">s1 === s2 <span class="comment">// false</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>注意</strong>，Symbol函数前不能使用new命令，否则会报错。这是因为生成的 Symbol 是一个原始类型的值，不是对象。也就是说，由于 Symbol 值不是对象，所以不能添加属性。基本上，它是一种类<strong>似于字符串的数据类型</strong>。</p>
+<h3 id="Symbol-for-，Symbol-keyFor"><a href="#Symbol-for-，Symbol-keyFor" class="headerlink" title="Symbol.for()，Symbol.keyFor()"></a>Symbol.for()，Symbol.keyFor()</h3><p>有时，我们希望<strong>重新使用同</strong>一个 Symbol 值，Symbol.for方法可以做到这一点。它接受一个字符串作为参数，然后搜索有没有以该参数作为名称的 Symbol 值。如果有，就返回这个 Symbol 值，否则就新建并返回一个以该字符串为名称的 Symbol 值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> s1 = <span class="built_in">Symbol</span>.for(<span class="string">'foo'</span>);</span><br><span class="line"><span class="keyword">let</span> s2 = <span class="built_in">Symbol</span>.for(<span class="string">'foo'</span>);</span><br><span class="line">s1 === s2 <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Symbol</span>.for(<span class="string">"bar"</span>) === <span class="built_in">Symbol</span>.for(<span class="string">"bar"</span>)</span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"><span class="built_in">Symbol</span>(<span class="string">"bar"</span>) === <span class="built_in">Symbol</span>(<span class="string">"bar"</span>)</span><br><span class="line"><span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Symbol.keyFor方法返回一个已登记的 Symbol 类型值的key。</span></span><br><span class="line"><span class="keyword">let</span> s1 = <span class="built_in">Symbol</span>.for(<span class="string">"foo"</span>);</span><br><span class="line"><span class="built_in">Symbol</span>.keyFor(s1) <span class="comment">// "foo"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> s2 = <span class="built_in">Symbol</span>(<span class="string">"foo"</span>);</span><br><span class="line"><span class="built_in">Symbol</span>.keyFor(s2) <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>，Symbol.for()与Symbol()这两种写法，都会生成新的 Symbol。它们的区别是，前者会被登记在全局环境中供搜索，后者不会。Symbol.for()不会每次调用就返回一个新的 Symbol 类型的值，而是会先检查给定的key是否已经存在，如果不存在才会新建一个值。比如，如果你调用Symbol.for(“cat”)30 次，每次都会返回同一个 Symbol 值，但是调用Symbol(“cat”)30 次，会返回 30 个不同的 Symbol 值。</p>
+<p><strong>值运算</strong><br>Symbol 值不能与其他类型的<strong>值进行运算</strong>，会报错。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> sym = <span class="built_in">Symbol</span>(<span class="string">'My symbol'</span>);</span><br><span class="line"></span><br><span class="line"><span class="string">"your symbol is "</span> + sym</span><br><span class="line"><span class="comment">// TypeError: can't convert symbol to string</span></span><br><span class="line"><span class="string">`your symbol is <span class="subst">$&#123;sym&#125;</span>`</span></span><br><span class="line"><span class="comment">// TypeError: can't convert symbol to string</span></span><br></pre></td></tr></table></figure></p>
+<p>但是，Symbol 值可以显式转为字符串。另外，Symbol 值也可以转为布尔值，但是不能转为数值。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> sym = <span class="built_in">Symbol</span>(<span class="string">'My symbol'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">String</span>(sym) <span class="comment">// 'Symbol(My symbol)'</span></span><br><span class="line">sym.toString() <span class="comment">// 'Symbol(My symbol)'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> sym = <span class="built_in">Symbol</span>();</span><br><span class="line"><span class="built_in">Boolean</span>(sym) <span class="comment">// true</span></span><br><span class="line">!sym  <span class="comment">// false</span></span><br><span class="line"><span class="keyword">if</span> (sym) &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Number</span>(sym) <span class="comment">// TypeError</span></span><br><span class="line">sym + <span class="number">2</span> <span class="comment">// TypeError</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="symbol_attr_name">作为属性名的 Symbol</h2>
+
+<p>每一个 Symbol 值都是<strong>不相等</strong>的，这意味着 Symbol 值可以作为标识符，用于对象的属性名，就能保证<strong>不会出现同名的属性</strong>。这对于一个对象由多个模块构成的情况非常有用，能<strong>防止</strong>某一个键被不小心<strong>改写或覆盖</strong>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> mySymbol = <span class="built_in">Symbol</span>();</span><br><span class="line"><span class="comment">// 第一种写法</span></span><br><span class="line"><span class="keyword">let</span> a = &#123;&#125;;</span><br><span class="line">a[mySymbol] = <span class="string">'Hello!'</span>;</span><br><span class="line"><span class="comment">// 第二种写法</span></span><br><span class="line"><span class="keyword">let</span> a = &#123;</span><br><span class="line">  [mySymbol]: <span class="string">'Hello!'</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 第三种写法</span></span><br><span class="line"><span class="keyword">let</span> a = &#123;&#125;;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(a, mySymbol, &#123; <span class="attr">value</span>: <span class="string">'Hello!'</span> &#125;);</span><br><span class="line"><span class="comment">// 以上写法都得到同样结果</span></span><br><span class="line">a[mySymbol] <span class="comment">// "Hello!"</span></span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>，Symbol 值作为对象属性名时，不能用<strong>点运算符</strong>。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mySymbol = <span class="built_in">Symbol</span>();</span><br><span class="line"><span class="keyword">const</span> a = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">a.mySymbol = <span class="string">'Hello!'</span>;</span><br><span class="line">a[mySymbol] <span class="comment">// undefined</span></span><br><span class="line">a[<span class="string">'mySymbol'</span>] <span class="comment">// "Hello!"</span></span><br><span class="line"><span class="comment">// 因为点运算符后面总是字符串，所以不会读取mySymbol作为标识名所指代的那个值，导致a的属性名实际上是一个字符串，而不是一个 Symbol 值。</span></span><br></pre></td></tr></table></figure></p>
+<p>Symbol 类型还可以用于定义一组常量，保证这组常量的值都是不相等的。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> log = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">log.levels = &#123;</span><br><span class="line">  DEBUG: <span class="built_in">Symbol</span>(<span class="string">'debug'</span>),</span><br><span class="line">  INFO: <span class="built_in">Symbol</span>(<span class="string">'info'</span>),</span><br><span class="line">  WARN: <span class="built_in">Symbol</span>(<span class="string">'warn'</span>)</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(log.levels.DEBUG, <span class="string">'debug message'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(log.levels.INFO, <span class="string">'info message'</span>);</span><br></pre></td></tr></table></figure></p>
+<h2 id="symbol_magic_str">实例：消除魔术字符串</h2>
+
+<p><strong>魔术字符串</strong>指的是，在代码之中多次出现、与代码<strong>形成强耦合</strong>的某一个具体的<strong>字符串或者数值</strong>。风格良好的代码，应该尽量消除魔术字符串，改由含义清晰的<strong>变量</strong>代替。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getArea</span>(<span class="params">shape, options</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> area = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">switch</span> (shape) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'Triangle'</span>: <span class="comment">// 魔术字符串</span></span><br><span class="line">      area = <span class="number">.5</span> * options.width * options.height;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="comment">/* ... more code ... */</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> area;</span><br><span class="line">&#125;</span><br><span class="line">getArea(<span class="string">'Triangle'</span>, &#123; <span class="attr">width</span>: <span class="number">100</span>, <span class="attr">height</span>: <span class="number">100</span> &#125;); <span class="comment">// 魔术字符串</span></span><br><span class="line"><span class="comment">// 字符串Triangle就是一个魔术字符串。它多次出现，与代码形成“强耦合”，不利于将来的修改和维护。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 消除魔法字符串</span></span><br><span class="line"><span class="keyword">const</span> shapeType = &#123;</span><br><span class="line">  triangle: <span class="string">'Triangle'</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getArea</span>(<span class="params">shape, options</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> area = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">switch</span> (shape) &#123;</span><br><span class="line">    <span class="keyword">case</span> shapeType.triangle:</span><br><span class="line">      area = <span class="number">.5</span> * options.width * options.height;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> area;</span><br><span class="line">&#125;</span><br><span class="line">getArea(shapeType.triangle, &#123; <span class="attr">width</span>: <span class="number">100</span>, <span class="attr">height</span>: <span class="number">100</span> &#125;);</span><br><span class="line"><span class="comment">// 把Triangle写成shapeType对象的triangle属性，这样就消除了强耦合。</span></span><br></pre></td></tr></table></figure>
+<p>如果仔细分析，可以发现shapeType.triangle等于哪个值并不重要，只要确保不会跟其他shapeType属性的值冲突即可。因此，这里就很适合改用 Symbol 值。</p>
+<p>上面代码中，除了将shapeType.triangle的值设为一个 Symbol，其他地方都不用修改。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> shapeType = &#123;</span><br><span class="line">  triangle: <span class="built_in">Symbol</span>()</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="symbol_attr_for">属性名的遍历</h2>
+
+<p>Symbol 作为属性名，该属性不会出现在<strong>for…in、for…of</strong>循环中，也不会被<strong>Object.keys()、Object.getOwnPropertyNames()、JSON.stringify()</strong>返回。但是，它也不是私有属性，有一个<strong>Object.getOwnPropertySymbols</strong>方法，可以获取指定对象的所有 Symbol 属性名。</p>
+<p>Object.getOwnPropertySymbols方法返回一个<strong>数组</strong>，成员是当前对象的所有用作<strong>属性名</strong>的 Symbol 值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;&#125;;</span><br><span class="line"><span class="keyword">let</span> a = <span class="built_in">Symbol</span>(<span class="string">'a'</span>);</span><br><span class="line"><span class="keyword">let</span> b = <span class="built_in">Symbol</span>(<span class="string">'b'</span>);</span><br><span class="line">obj[a] = <span class="string">'Hello'</span>;</span><br><span class="line">obj[b] = <span class="string">'World'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> objectSymbols = <span class="built_in">Object</span>.getOwnPropertySymbols(obj);</span><br><span class="line"></span><br><span class="line">objectSymbols</span><br><span class="line"><span class="comment">// [Symbol(a), Symbol(b)]</span></span><br></pre></td></tr></table></figure>
+<p>下面是另一个例子，Object.getOwnPropertySymbols方法与for…in循环、Object.getOwnPropertyNames方法进行对比的例子。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;&#125;;</span><br><span class="line"><span class="keyword">let</span> foo = <span class="built_in">Symbol</span>(<span class="string">"foo"</span>);</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj, foo, &#123;</span><br><span class="line">  value: <span class="string">"foobar"</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">in</span> obj) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(i); <span class="comment">// 无输出</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.getOwnPropertyNames(obj)</span><br><span class="line"><span class="comment">// []</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.getOwnPropertySymbols(obj)</span><br><span class="line"><span class="comment">// [Symbol(foo)]</span></span><br></pre></td></tr></table></figure>
+<p>另一个新的 API，<strong>Reflect.ownKeys</strong>方法可以返回所有类型的键名，包括常<strong>规键名和 Symbol 键名</strong>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  [<span class="built_in">Symbol</span>(<span class="string">'my_key'</span>)]: <span class="number">1</span>,</span><br><span class="line">  enum: <span class="number">2</span>,</span><br><span class="line">  nonEnum: <span class="number">3</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Reflect</span>.ownKeys(obj)</span><br><span class="line"><span class="comment">//  ["enum", "nonEnum", Symbol(my_key)]</span></span><br></pre></td></tr></table></figure>
+<p>由于以 Symbol 值作为名称的属性，不会被常规方法遍历得到。我们可以利用这个特性，为对象定义一些非私有的、但又希望只用于内部的方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> size = <span class="built_in">Symbol</span>(<span class="string">'size'</span>);</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Collection</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">this</span>[size] = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  add(item) &#123;</span><br><span class="line">    <span class="keyword">this</span>[<span class="keyword">this</span>[size]] = item;</span><br><span class="line">    <span class="keyword">this</span>[size]++;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">static</span> sizeOf(instance) &#123;</span><br><span class="line">    <span class="keyword">return</span> instance[size];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> x = <span class="keyword">new</span> Collection();</span><br><span class="line">Collection.sizeOf(x) <span class="comment">// 0</span></span><br><span class="line"></span><br><span class="line">x.add(<span class="string">'foo'</span>);</span><br><span class="line">Collection.sizeOf(x) <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.keys(x) <span class="comment">// ['0']</span></span><br><span class="line"><span class="built_in">Object</span>.getOwnPropertyNames(x) <span class="comment">// ['0']</span></span><br><span class="line"><span class="built_in">Object</span>.getOwnPropertySymbols(x) <span class="comment">// [Symbol(size)]</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，对象x的size属性是一个 Symbol 值，所以Object.keys(x)、Object.getOwnPropertyNames(x)都无法获取它。这就造成了<strong>一种非私有的内部方法的效果</strong>。</p>
+<p>更多请参考 <a href="http://es6.ruanyifeng.com/#docs/symbol#%E5%AE%9E%E4%BE%8B%EF%BC%9A%E6%A8%A1%E5%9D%97%E7%9A%84-Singleton-%E6%A8%A1%E5%BC%8F" target="_blank" rel="noopener">Symbol</a> ，该篇文章基本是搬运过来的。</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://yoursite.com/2018/07/29/es6-symbol/" data-id="cjk7129ub0003kguxs6ifoyew" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>关注我 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="google-plus" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-google-plus"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2018/07/29/typescript-start/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            typescript_start
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2018/07/28/egret-p2-use/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">egret_p2_use</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/07/29/typescript-start/" class="thumbnail">
+    
+    
+        <span style="background-image:url(../../../../images/ts/ts.jpg)" alt="typescript_start" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/07/29/typescript-start/" class="title">typescript_start</a></p>
+                            <p class="item-date"><time datetime="2018-07-29T15:56:46.000Z" itemprop="datePublished">2018-07-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/07/29/es6-symbol/" class="thumbnail">
+    
+    
+        <span style="background-image:url(../../../../images/es6/es6.jpg)" alt="es6_symbol" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/js/">js</a></p>
+                            <p class="item-title"><a href="/2018/07/29/es6-symbol/" class="title">es6_symbol</a></p>
+                            <p class="item-date"><time datetime="2018-07-29T15:46:50.000Z" itemprop="datePublished">2018-07-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/07/28/egret-p2-use/" class="thumbnail">
+    
+    
+        <span style="background-image:url(../../../../images/egret_p2_use/01.png)" alt="egret_p2_use" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/egret/">egret</a></p>
+                            <p class="item-title"><a href="/2018/07/28/egret-p2-use/" class="title">egret_p2_use</a></p>
+                            <p class="item-date"><time datetime="2018-07-28T05:56:58.000Z" itemprop="datePublished">2018-07-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/07/28/egret-scene-change/" class="thumbnail">
+    
+    
+        <span style="background-image:url(../../../../images/egret_scene_change/01.png)" alt="egret_scene_change" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/egret/">egret</a></p>
+                            <p class="item-title"><a href="/2018/07/28/egret-scene-change/" class="title">egret_scene_change</a></p>
+                            <p class="item-date"><time datetime="2018-07-28T05:55:51.000Z" itemprop="datePublished">2018-07-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/07/25/egret-loading-ui/" class="thumbnail">
+    
+    
+        <span style="background-image:url(../../../../images/egret_loading_ui/01.png)" alt="egret_loading_ui" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/egret/">egret</a></p>
+                            <p class="item-title"><a href="/2018/07/25/egret-loading-ui/" class="title">egret_loading_ui</a></p>
+                            <p class="item-date"><time datetime="2018-07-25T15:33:37.000Z" itemprop="datePublished">2018-07-25</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/egret/">egret</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/什么/">什么</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/什么/纳尼/">纳尼</a><span class="category-list-count">1</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">7</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/egret/">egret</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es6/">es6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typescript/">typescript</a><span class="tag-list-count">4</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/egret/" style="font-size: 15px;">egret</a> <a href="/tags/es6/" style="font-size: 10px;">es6</a> <a href="/tags/typescript/" style="font-size: 20px;">typescript</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 Nanqiang Lin</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://yoursite.com/2018/07/29/es6-symbol/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
