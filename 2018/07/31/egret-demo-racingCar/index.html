@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>egret_demo_racingCar | 思密达的 blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="egret,typescript,gameDemo" />
+    
+    <meta name="description" content="egret demo racingCar目录游戏玩法目录介绍主要代码讲解 游戏玩法  该笔记记录做一个简单的游戏项目，赛车游戏。  赛车游戏，   loading 记载页，加载进来 游戏开始页，点击开始按钮，进入游戏页面 倒计时3、2、1，车灯闪烁，用户左右滑动，小车随着左右移动，躲避路上其他车辆 根据配置，设置开了 10000km，算是完成了游戏，显示有成功的游戏结束页面，如撞到其他车辆，则显示">
+<meta name="keywords" content="egret,typescript,gameDemo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="egret_demo_racingCar">
+<meta property="og:url" content="http://yoursite.com/2018/07/31/egret-demo-racingCar/index.html">
+<meta property="og:site_name" content="思密达的 blog">
+<meta property="og:description" content="egret demo racingCar目录游戏玩法目录介绍主要代码讲解 游戏玩法  该笔记记录做一个简单的游戏项目，赛车游戏。  赛车游戏，   loading 记载页，加载进来 游戏开始页，点击开始按钮，进入游戏页面 倒计时3、2、1，车灯闪烁，用户左右滑动，小车随着左右移动，躲避路上其他车辆 根据配置，设置开了 10000km，算是完成了游戏，显示有成功的游戏结束页面，如撞到其他车辆，则显示">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/egret_demo/racingCar.png">
+<meta property="og:updated_time" content="2018-07-31T14:25:22.860Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="egret_demo_racingCar">
+<meta name="twitter:description" content="egret demo racingCar目录游戏玩法目录介绍主要代码讲解 游戏玩法  该笔记记录做一个简单的游戏项目，赛车游戏。  赛车游戏，   loading 记载页，加载进来 游戏开始页，点击开始按钮，进入游戏页面 倒计时3、2、1，车灯闪烁，用户左右滑动，小车随着左右移动，躲避路上其他车辆 根据配置，设置开了 10000km，算是完成了游戏，显示有成功的游戏结束页面，如撞到其他车辆，则显示">
+<meta name="twitter:image" content="http://yoursite.com/images/egret_demo/racingCar.png">
+    
+
+    
+        <link rel="alternate" href="/" title="思密达的 blog" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">nanqiang 记录点滴思密达</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">主页</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/egret/">egret</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/js/">js</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/什么/">什么</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/什么/纳尼/">纳尼</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">关于</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/egret/">egret</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-egret-demo-racingCar" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        egret_demo_racingCar
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2018/07/31/egret-demo-racingCar/" class="article-date">
+            <time datetime="2018-07-31T14:18:43.000Z" itemprop="datePublished">2018-07-31</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/egret/">egret</a>, <a class="tag-link" href="/tags/gameDemo/">gameDemo</a>, <a class="tag-link" href="/tags/typescript/">typescript</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h1 id="egret-demo-racingCar"><a href="#egret-demo-racingCar" class="headerlink" title="egret demo racingCar"></a>egret demo racingCar</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p><a href="#game_play">游戏玩法</a><br><a href="#game_directory">目录介绍</a><br><a href="#game_code">主要代码讲解</a></p>
+<h2 id="game_play">游戏玩法</h2>
+
+<p>该笔记记录做一个简单的游戏项目，赛车游戏。</p>
+<p><img src="../../../../images/egret_demo/racingCar.png" alt="racingCar 项目" style="width:400px;"></p>
+<p><strong>赛车游戏，</strong></p>
+<blockquote>
+<ol>
+<li>loading 记载页，加载进来</li>
+<li>游戏开始页，点击开始按钮，进入游戏页面</li>
+<li>倒计时3、2、1，车灯闪烁，用户左右滑动，小车随着左右移动，躲避路上其他车辆</li>
+<li>根据配置，设置开了 10000km，算是完成了游戏，显示有成功的游戏结束页面，如撞到其他车辆，则显示失败的游戏结束页面，可点击再玩一次，返回首页。</li>
+</ol>
+</blockquote>
+<p>这里策划了一个简单的赛测游戏，熟悉 egret 的使用。接下来就开始写代码了。</p>
+<p></p><h2 id="game_directory">目录介绍</h2><br>创建游戏项目（不是 eui 额），根据之前<a href="http://blog.nankio.cn/tags/egret/" title="egret基础教程" target="_blank" rel="noopener">学到的 egret 一些知识</a>，新建一些文件和目录。<p></p>
+<p><img src="../../../../images/egret_demo/racingCar/01.png" alt="racingCar 项目" style="width:200px;"></p>
+<p>该项目自定义 loading ui，使用了场景切换的特殊效果（这两个在之前的文章中有写到）。这里有几个文件需要介绍一下:</p>
+<blockquote>
+<ol>
+<li>common/Common.ts 这是放一些公共的变量或者函数的，方便开发统一管理</li>
+<li>utils/MoveUtil.ts utils 目录是放一些工具类，赛车游戏，需要用到移动车辆，所以创建一个移动的工具类</li>
+<li>Data.ts 这是该游戏项目的一些数据</li>
+<li>Game.ts 一些该游戏独有的变量或函数，和 Common.ts 相似，不过这个只是针对该项目</li>
+</ol>
+</blockquote>
+<p>上面这些分类，是个人喜欢，你也可以自己根据你的喜好，创建那些类。</p>
+<p><strong>common/Common.ts</strong> 公共的变量或者函数</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> Common &#123;</span><br><span class="line">  <span class="comment">//获取当前面板</span></span><br><span class="line">  <span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">curStage</span>(<span class="params"></span>): <span class="title">egret</span>.<span class="title">Stage</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> egret.MainContext.instance.stage;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//当前游戏宽度</span></span><br><span class="line">  <span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">curWidth</span>(<span class="params"></span>): <span class="title">number</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> egret.MainContext.instance.stage.stageWidth;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//当前游戏宽度</span></span><br><span class="line">  <span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">curHeight</span>(<span class="params"></span>): <span class="title">number</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> egret.MainContext.instance.stage.stageHeight;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 根据name关键字创建一个Bitmap对象。name属性请参考resources/resource.json配置文件的内容。</span></span><br><span class="line">  <span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">createBitmapByName</span>(<span class="params">name: <span class="built_in">string</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> result = <span class="keyword">new</span> egret.Bitmap();</span><br><span class="line">    <span class="keyword">let</span> texture: egret.Texture = RES.getRes(name);</span><br><span class="line">    result.texture = texture;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// gameover 画面弹出</span></span><br><span class="line">  <span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">gameOver</span>(<span class="params"><span class="keyword">type</span>, obj, cb</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">switch</span> (<span class="keyword">type</span>) &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">        egret.Tween</span><br><span class="line">          .get(obj)</span><br><span class="line">          .to(&#123; y: <span class="number">0</span> &#125;, <span class="number">500</span>, egret.Ease.circIn)</span><br><span class="line">          .call(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            cb &amp;&amp; cb();</span><br><span class="line">          &#125;)</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">        egret.Tween</span><br><span class="line">          .get(obj)</span><br><span class="line">          .to(&#123; y: -common.curHeight() &#125;, <span class="number">300</span>, egret.Ease.circIn)</span><br><span class="line">          .call(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            cb &amp;&amp; cb();</span><br><span class="line">          &#125;)</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      <span class="keyword">default</span>:</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>utils/MoveUtil.ts utils</strong><br>这个类比较长，这里就不粘贴了，代码地址会在后面附上。</p>
+<p><strong>Data.ts</strong> 游戏相关数据定义</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 游戏相关数据</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> Data &#123;</span><br><span class="line">  <span class="comment">//默认为true,表示是成功的；false表示失败，没有完成任务</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> gameResult: <span class="built_in">boolean</span> = <span class="literal">true</span>;</span><br><span class="line">  <span class="comment">//记录走过的路程距离</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> distanceLength: <span class="built_in">number</span> = <span class="number">0</span>;</span><br><span class="line">  <span class="comment">//目标距离</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> targetDistance: <span class="built_in">number</span> = <span class="number">10000</span>;</span><br><span class="line">  <span class="comment">//舞台高</span></span><br><span class="line">  <span class="comment">// public static stageH: number = 800;</span></span><br><span class="line">  <span class="comment">//舞台宽</span></span><br><span class="line">  <span class="comment">// public static stageW: number = 480;</span></span><br><span class="line">  <span class="comment">//当前车速度</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> currentSpeedY: <span class="built_in">number</span> = <span class="number">6</span>;</span><br><span class="line">  <span class="comment">// 起始车速度</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> startSpeed: <span class="built_in">number</span> = <span class="number">6</span>;</span><br><span class="line">  <span class="comment">// 最大速度</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> mostSpeed: <span class="built_in">number</span> = <span class="number">36</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Game.ts</strong> 这里我只是写了一个点击按钮效果：按钮点击放大动画，移开取消<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> game &#123;</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 按钮点击放大动画，移开取消</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * @export</span></span><br><span class="line"><span class="comment">   * @param &#123;egret.TouchEvent&#125; e</span></span><br><span class="line"><span class="comment">   * @param &#123;*&#125; successCb 成功回调</span></span><br><span class="line"><span class="comment">   * @param &#123;*&#125; [cancleCb]  取消回调，可选</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">touchAction</span>(<span class="params">e:egret.TouchEvent, successCb, cancleCb?:<span class="built_in">any</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (e.type == egret.TouchEvent.TOUCH_BEGIN) &#123;</span><br><span class="line">      e.currentTarget.scaleX = <span class="number">1.05</span>;</span><br><span class="line">      e.currentTarget.scaleY = <span class="number">1.05</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.type == egret.TouchEvent.TOUCH_END) &#123;</span><br><span class="line">      e.currentTarget.scaleX = <span class="number">1.0</span>;</span><br><span class="line">      e.currentTarget.scaleY = <span class="number">1.0</span>;</span><br><span class="line">      <span class="comment">//开始游戏</span></span><br><span class="line">      successCb &amp;&amp; successCb();</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.type == egret.TouchEvent.TOUCH_RELEASE_OUTSIDE) &#123;</span><br><span class="line">      e.currentTarget.scaleX = <span class="number">1.0</span>;</span><br><span class="line">      e.currentTarget.scaleY = <span class="number">1.0</span>;</span><br><span class="line">      cancleCb &amp;&amp; cancleCb(); </span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p></p><h2 id="game_code">主要代码讲解</h2><br>创建了基础类后，就开始写该项目的主要逻辑了。<p></p>
+<blockquote>
+<ol>
+<li>创建所有的游戏场景 view/*.ts，实现各个场景间的切换，保证可以跳转全部场景</li>
+<li>该项目比较简单，就 3 个场景，主要操作是在赛车场景 SceneGame.ts</li>
+<li>游戏开始场景 SceneBegin.ts 比较简单，就需要监听开始按钮事件即可</li>
+<li>游戏结束场景 SceneEnd.ts 也较简单，监听再来一次事件，且更加用户是否完成任务，显示成功或失败的图标</li>
+</ol>
+</blockquote>
+<p>SceneBegin.ts 和 SceneEnd.ts 这里就不重复了，之前的场景切换写的比较详细了。</p>
+<p>主要讲讲 <strong>SceneGame.ts</strong><br>梳理一下这页面的主要逻辑：</p>
+<blockquote>
+<ol>
+<li>倒计时 3、2、1</li>
+<li>车辆移动</li>
+<li>用户左右滑动</li>
+<li>计算米数</li>
+<li>碰撞检测</li>
+<li>游戏结束判断，成功或失败</li>
+</ol>
+</blockquote>
+<p>先创建背景，无缝循环移动的背景，两个背景拼接起来，背景移动，用户车辆不移动，视觉上感觉用户车辆再移动。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> createBg() &#123;</span><br><span class="line">    <span class="keyword">this</span>.bg01 = common.createBitmapByName(<span class="string">'bg_png'</span>);</span><br><span class="line">    <span class="keyword">this</span>.bg02 = common.createBitmapByName(<span class="string">'bg_png'</span>);</span><br><span class="line">    <span class="keyword">this</span>.bg01.width = <span class="keyword">this</span>.bg02.width = common.curWidth();</span><br><span class="line">    <span class="keyword">this</span>.bg01.height = <span class="keyword">this</span>.bg02.height = common.curHeight();</span><br><span class="line">    <span class="keyword">this</span>.addChild(<span class="keyword">this</span>.bg01);</span><br><span class="line">    <span class="keyword">this</span>.addChild(<span class="keyword">this</span>.bg02);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.addChild(<span class="keyword">this</span>.carLayer);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> distanceCon: egret.Sprite = <span class="keyword">new</span> egret.Sprite();</span><br><span class="line">    <span class="keyword">var</span> distanceBg = common.createBitmapByName(<span class="string">'roadnumBg_png'</span>);</span><br><span class="line">    distanceCon.addChild(distanceBg);</span><br><span class="line">    <span class="keyword">this</span>.addChild(distanceCon);</span><br><span class="line">    distanceCon.addChild(<span class="keyword">this</span>.distanceNum);</span><br><span class="line">    <span class="keyword">this</span>.distanceNum.text = <span class="string">'0'</span>;</span><br><span class="line">    <span class="keyword">this</span>.distanceNum.x = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">this</span>.distanceNum.y = <span class="number">36</span>;</span><br><span class="line">    <span class="keyword">this</span>.distanceNum.font = RES.getRes(<span class="string">'roadnum_fnt'</span>);</span><br><span class="line">    distanceCon.x = common.curWidth() - distanceBg.width;</span><br><span class="line">    distanceCon.y = <span class="number">100</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.bg02.y = -common.curHeight();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.bg01MoveUtil = <span class="keyword">new</span> MoveUtil(<span class="keyword">this</span>.bg01);</span><br><span class="line">    <span class="keyword">this</span>.bg02MoveUtil = <span class="keyword">new</span> MoveUtil(<span class="keyword">this</span>.bg02);</span><br><span class="line">    <span class="keyword">this</span>.bg01MoveUtil.startPos = <span class="keyword">new</span> egret.Point(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">this</span>.bg01MoveUtil.endPos = <span class="keyword">new</span> egret.Point(<span class="number">0</span>, common.curHeight());</span><br><span class="line">    <span class="keyword">this</span>.bg02MoveUtil.startPos = <span class="keyword">new</span> egret.Point(<span class="number">0</span>, -common.curHeight());</span><br><span class="line">    <span class="keyword">this</span>.bg02MoveUtil.endPos = <span class="keyword">new</span> egret.Point(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>创建用户车辆，<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> createHero() &#123;</span><br><span class="line">    <span class="keyword">this</span>.car = common.createBitmapByName(<span class="string">'hero_png'</span>);</span><br><span class="line">    <span class="keyword">this</span>.carLight = common.createBitmapByName(<span class="string">'carLight_png'</span>);</span><br><span class="line">    <span class="keyword">this</span>.heroCon.addChild(<span class="keyword">this</span>.carLight);</span><br><span class="line">    <span class="keyword">this</span>.heroCon.addChild(<span class="keyword">this</span>.car);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">this</span>.car.x = (<span class="keyword">this</span>.heroCon.width - <span class="keyword">this</span>.car.width) + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">this</span>.car.y = <span class="keyword">this</span>.carLight.height - <span class="number">22</span>;</span><br><span class="line">    <span class="keyword">this</span>.heroCon.x = common.curWidth() - <span class="number">200</span>;</span><br><span class="line">    <span class="keyword">this</span>.heroCon.y = common.curHeight() - <span class="number">300</span>;</span><br><span class="line">    <span class="comment">// console.log(this.heroCon.width,car.width)</span></span><br><span class="line">    <span class="keyword">this</span>.addChild(<span class="keyword">this</span>.heroCon);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<p>倒计时，使用 tween 动画就可轻松实现了</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> startTips(cb) &#123;</span><br><span class="line">    <span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> one: egret.Bitmap = common.createBitmapByName(<span class="string">'startnum1_png'</span>);</span><br><span class="line">    <span class="keyword">var</span> two: egret.Bitmap = common.createBitmapByName(<span class="string">'startnum2_png'</span>);</span><br><span class="line">    <span class="keyword">var</span> three: egret.Bitmap = common.createBitmapByName(<span class="string">'startnum3_png'</span>);</span><br><span class="line">    <span class="keyword">this</span>.addChild(one);</span><br><span class="line">    <span class="keyword">this</span>.addChild(two);</span><br><span class="line">    <span class="keyword">this</span>.addChild(three);</span><br><span class="line"></span><br><span class="line">    one.anchorOffsetX = one.width / <span class="number">2</span>;</span><br><span class="line">    two.anchorOffsetX = two.width / <span class="number">2</span>;</span><br><span class="line">    three.anchorOffsetX = three.width / <span class="number">2</span>;</span><br><span class="line">    one.anchorOffsetY = one.height / <span class="number">2</span>;</span><br><span class="line">    two.anchorOffsetY = two.height / <span class="number">2</span>;</span><br><span class="line">    three.anchorOffsetY = three.height / <span class="number">2</span>;</span><br><span class="line">    one.x = two.x = three.x = common.curWidth() / <span class="number">2</span>;</span><br><span class="line">    one.y = two.y = three.y = common.curHeight() / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    one.alpha = two.alpha = three.alpha = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    that.startTimeAnim(three, <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      that.startTimeAnim(two, <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        that.startTimeAnim(one, <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">          cb &amp;&amp; cb();</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">private</span> startTimeAnim(tar, cb) &#123;</span><br><span class="line">    egret.Tween</span><br><span class="line">      .get(tar)</span><br><span class="line">      .to(&#123; alpha: <span class="number">1</span>, scaleX: <span class="number">1.35</span>, scaleY: <span class="number">1.35</span> &#125;)</span><br><span class="line">      .to(&#123; scaleX: <span class="number">1</span>, scaleY: <span class="number">1</span> &#125;, <span class="number">1000</span>, egret.Ease.backInOut)</span><br><span class="line">      .call(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (tar.parent) &#123;</span><br><span class="line">          tar.parent.removeChild(tar);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// tar.alpha = 0;</span></span><br><span class="line">        cb();</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>我们现在创建了背景、用户车辆、倒计时，接下来，就是游戏开始了，还记得我们每个 场景都有一个 start 方法控制事件监听吧~~这里监听用户左右滑动的操作和监听每一帧触发事件 ENTER_FRAME ，开始记录用户的<strong>米数</strong>。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">start() &#123;</span><br><span class="line">    <span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">this</span>.startTips(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      egret.Tween</span><br><span class="line">        .get(that.carLight, &#123; loop: <span class="literal">true</span> &#125;)</span><br><span class="line">        .to(&#123; alpha: <span class="number">0</span> &#125;, <span class="number">300</span>)</span><br><span class="line">        .to(&#123; alpha: <span class="number">1</span> &#125;, <span class="number">300</span>);</span><br><span class="line">      that.touchEnabled = <span class="literal">true</span>;</span><br><span class="line">      that.addEventListener(egret.Event.ENTER_FRAME, that.onEnterFrame, that);</span><br><span class="line">      that.addEventListener(egret.TouchEvent.TOUCH_BEGIN, that.touchBegin, that);</span><br><span class="line">      <span class="comment">//这里只需要一个设置为true就可以。</span></span><br><span class="line">      that.bg01MoveUtil.getDistance(<span class="literal">true</span>);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>ENTER_FRAME  事件，这个每一帧都触发的事件，在这里监听用户车辆的碰撞、背景移动、随机产生其他车辆、移动和回收清除它们、判断是否游戏结束（成功或失败）</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> onEnterFrame(e: egret.Event) &#123;</span><br><span class="line">    <span class="comment">// return false;</span></span><br><span class="line">    <span class="comment">//检测游戏是否结束</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.isOver()) &#123;</span><br><span class="line">      <span class="keyword">this</span>.gameEnd();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//随即生产小车</span></span><br><span class="line">    <span class="keyword">var</span> time: <span class="built_in">number</span> = egret.getTimer();</span><br><span class="line">    <span class="keyword">if</span> (time - <span class="keyword">this</span>.preProduceCarTime &gt; <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">500</span> + <span class="number">1500</span>)) &#123;</span><br><span class="line">      <span class="keyword">this</span>.randomCreateCar();</span><br><span class="line">      <span class="keyword">this</span>.preProduceCarTime = time;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//移动小车</span></span><br><span class="line">    <span class="keyword">if</span> (CarFactory.getInstance().liveCarArray.length) &#123;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> i = CarFactory.getInstance().liveCarArray.length - <span class="number">1</span>, car: Car; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">        car = CarFactory.getInstance().liveCarArray[i];</span><br><span class="line">        car.setSpeed(Data.currentSpeedY - <span class="number">2</span>);</span><br><span class="line">        car.onEnterFrame();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.bg01MoveUtil.onEnterFrame();</span><br><span class="line">    <span class="keyword">this</span>.bg02MoveUtil.onEnterFrame();</span><br><span class="line">    <span class="keyword">this</span>.distanceNum.text = <span class="built_in">Math</span>.floor(Data.distanceLength).toString();</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>还有一个类，其他车辆的工厂类 CarFactory.ts，可以批量创建和清楚回收车辆。</p>
+<p><a href="https://github.com/Harveytwo/my_egret_demo" target="_blank" rel="noopener">所有代码看 github</a></p>
+<p>好了，到这里基本学会了，写一个简单的小游戏了。接下来，靠你的 creative idea 写出好玩的游戏了。</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://yoursite.com/2018/07/31/egret-demo-racingCar/" data-id="cjk9sx7w30007ecuxvyhxwobi" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>关注我 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="google-plus" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-google-plus"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2018/07/29/typescript-start/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">typescript_start</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/07/31/egret-demo-racingCar/" class="thumbnail">
+    
+    
+        <span style="background-image:url(../../../../images/egret_demo/racingCar.png)" alt="egret_demo_racingCar" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/egret/">egret</a></p>
+                            <p class="item-title"><a href="/2018/07/31/egret-demo-racingCar/" class="title">egret_demo_racingCar</a></p>
+                            <p class="item-date"><time datetime="2018-07-31T14:18:43.000Z" itemprop="datePublished">2018-07-31</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/07/29/typescript-start/" class="thumbnail">
+    
+    
+        <span style="background-image:url(../../../../images/ts/ts.jpg)" alt="typescript_start" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2018/07/29/typescript-start/" class="title">typescript_start</a></p>
+                            <p class="item-date"><time datetime="2018-07-29T15:56:46.000Z" itemprop="datePublished">2018-07-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/07/29/es6-symbol/" class="thumbnail">
+    
+    
+        <span style="background-image:url(../../../../images/es6/es6.jpg)" alt="es6_symbol" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/js/">js</a></p>
+                            <p class="item-title"><a href="/2018/07/29/es6-symbol/" class="title">es6_symbol</a></p>
+                            <p class="item-date"><time datetime="2018-07-29T15:46:50.000Z" itemprop="datePublished">2018-07-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/07/28/egret-p2-use/" class="thumbnail">
+    
+    
+        <span style="background-image:url(../../../../images/egret_p2_use/01.png)" alt="egret_p2_use" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/egret/">egret</a></p>
+                            <p class="item-title"><a href="/2018/07/28/egret-p2-use/" class="title">egret_p2_use</a></p>
+                            <p class="item-date"><time datetime="2018-07-28T05:56:58.000Z" itemprop="datePublished">2018-07-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/07/28/egret-scene-change/" class="thumbnail">
+    
+    
+        <span style="background-image:url(../../../../images/egret_scene_change/01.png)" alt="egret_scene_change" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/egret/">egret</a></p>
+                            <p class="item-title"><a href="/2018/07/28/egret-scene-change/" class="title">egret_scene_change</a></p>
+                            <p class="item-date"><time datetime="2018-07-28T05:55:51.000Z" itemprop="datePublished">2018-07-28</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/egret/">egret</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/什么/">什么</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/什么/纳尼/">纳尼</a><span class="category-list-count">1</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">8</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/egret/">egret</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es6/">es6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gameDemo/">gameDemo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typescript/">typescript</a><span class="tag-list-count">5</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/egret/" style="font-size: 15px;">egret</a> <a href="/tags/es6/" style="font-size: 10px;">es6</a> <a href="/tags/gameDemo/" style="font-size: 10px;">gameDemo</a> <a href="/tags/typescript/" style="font-size: 20px;">typescript</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 Nanqiang Lin</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://yoursite.com/2018/07/31/egret-demo-racingCar/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
