@@ -6,24 +6,26 @@
     
 
     
-    <title>思密达的 blog</title>
+    <title>egret_demo_wxPlane | 思密达的 blog</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="" />
+        <meta name="keywords" content="egret,typescript,gameDemo" />
     
-    <meta name="description" content="养成码字记录的习惯哦~~">
-<meta name="keywords" content="思密达 simida blog Harvey nanqiang lin">
+    <meta name="description" content="Egret demo-wx plane game目录游戏玩法目录介绍主要代码讲解 游戏玩法这个打飞机的 demo 是用 egret 仿写微信小游戏的示例的，所以只可以拿来当做是练习额~~玩法很简单，就是用户拖动飞机，击败敌机。用户飞机自动发射子弹，敌机也可以发射子弹，用户击败 30 / 60 架敌机，分别可以一次发射 2 / 3 颗子弹。用户飞机被敌机子弹击中或被敌机撞到，游戏结束。目录介绍目录大">
+<meta name="keywords" content="egret,typescript,gameDemo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="思密达的 blog">
+<meta property="og:title" content="egret_demo_wxPlane">
 <meta property="og:url" content="http://yoursite.com/2018/08/07/egret-demo-wxPlane/index.html">
 <meta property="og:site_name" content="思密达的 blog">
-<meta property="og:description" content="养成码字记录的习惯哦~~">
+<meta property="og:description" content="Egret demo-wx plane game目录游戏玩法目录介绍主要代码讲解 游戏玩法这个打飞机的 demo 是用 egret 仿写微信小游戏的示例的，所以只可以拿来当做是练习额~~玩法很简单，就是用户拖动飞机，击败敌机。用户飞机自动发射子弹，敌机也可以发射子弹，用户击败 30 / 60 架敌机，分别可以一次发射 2 / 3 颗子弹。用户飞机被敌机子弹击中或被敌机撞到，游戏结束。目录介绍目录大">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-09T15:18:23.884Z">
+<meta property="og:image" content="http://yoursite.com/images/egret_demo/myPlane/01.png">
+<meta property="og:updated_time" content="2018-08-09T15:20:38.893Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="思密达的 blog">
-<meta name="twitter:description" content="养成码字记录的习惯哦~~">
+<meta name="twitter:title" content="egret_demo_wxPlane">
+<meta name="twitter:description" content="Egret demo-wx plane game目录游戏玩法目录介绍主要代码讲解 游戏玩法这个打飞机的 demo 是用 egret 仿写微信小游戏的示例的，所以只可以拿来当做是练习额~~玩法很简单，就是用户拖动飞机，击败敌机。用户飞机自动发射子弹，敌机也可以发射子弹，用户击败 30 / 60 架敌机，分别可以一次发射 2 / 3 颗子弹。用户飞机被敌机子弹击中或被敌机撞到，游戏结束。目录介绍目录大">
+<meta name="twitter:image" content="http://yoursite.com/images/egret_demo/myPlane/01.png">
     
 
     
@@ -136,35 +138,70 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    未分类
+    <a class="page-title-link" href="/categories/egret/">egret</a>
     </h1>
 </div>
                         <div class="main-body-content">
                             <article id="post-egret-demo-wxPlane" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        egret_demo_wxPlane
+        </h1>
+    
+
+            </header>
+        
         
             <div class="article-meta">
                 
     <div class="article-date">
         <a href="/2018/08/07/egret-demo-wxPlane/" class="article-date">
-            <time datetime="2018-08-07T14:33:43.027Z" itemprop="datePublished">2018-08-07</time>
+            <time datetime="2018-08-07T14:33:42.000Z" itemprop="datePublished">2018-08-07</time>
         </a>
     </div>
 
                 
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/egret/">egret</a>, <a class="tag-link" href="/tags/gameDemo/">gameDemo</a>, <a class="tag-link" href="/tags/typescript/">typescript</a>
+    </div>
+
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            
+            <h1 id="Egret-demo-wx-plane-game"><a href="#Egret-demo-wx-plane-game" class="headerlink" title="Egret demo-wx plane game"></a>Egret demo-wx plane game</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p><a href="#game_play">游戏玩法</a><br><a href="#game_directory">目录介绍</a><br><a href="#game_code">主要代码讲解</a></p>
+<h2 id="game_play">游戏玩法</h2><br>这个打飞机的 demo 是用 egret 仿写微信小游戏的示例的，所以只可以拿来当做是练习额~~<br><br><img src="../../../../images/egret_demo/myPlane/01.png" alt="myPlane 项目" style="width:400px;"><br><br>玩法很简单，就是用户拖动飞机，击败敌机。用户飞机自动发射子弹，敌机也可以发射子弹，用户击败 30 / 60 架敌机，分别可以一次发射 2 / 3 颗子弹。用户飞机被敌机子弹击中或被敌机撞到，游戏结束。<br><br><h2 id="game_directory">目录介绍</h2><br>目录大致和上次的 racingCar demo 差不多，都有 common, control, events, utils, view 等目录。<br>这次还有几个类，是根据微信小游戏的实例仿写过来的，所以这次类的创建，是按照他的示例来创建的：<br>1. npc/Enemy.ts 敌机类、<br>2. player/Player.ts 用户机类、<br>3. player/Bullet.ts 子弹类、<br>4. 对象池  common/Pool.ts 类，控制当前页面对象（子弹和敌机）的数量，避免使用 js 原有的垃圾处理机制，而是通过对象池来复用已经创建的对象，算是一个性能优化。<br>5. 还有 Databus.ts 类，管控游戏状态，包含分数、子弹数组、敌机数组、是否游戏结束等。<br><br><img src="../../../../images/egret_demo/myPlane/02.png" alt="myPlane 项目" style="width:400px;"><br><br><h2 id="game_code">主要代码讲解</h2>
+
+<p><strong>npc/Enemy.ts 敌机类</strong><br>x 轴随机出现敌机，并向下移动、发射子弹、被击中时，播放 movieClip 爆炸动效、碰撞检测函数<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Enemy <span class="keyword">extends</span> egret.Sprite &#123;</span><br><span class="line">  ...</span><br><span class="line">  ...</span><br><span class="line"> </span><br><span class="line"> createEnemy() &#123;&#125;</span><br><span class="line"> update() &#123;</span><br><span class="line">	  <span class="comment">// 敌机移动</span></span><br><span class="line">	  <span class="keyword">this</span>.y += <span class="keyword">this</span>.speed;</span><br><span class="line">	  <span class="comment">// 对象回收</span></span><br><span class="line">	  <span class="keyword">if</span> (<span class="keyword">this</span>.y &gt; common.curHeight() + <span class="keyword">this</span>.height) &#123;</span><br><span class="line">	      Databus.getInstance().removeEnemey(<span class="keyword">this</span>);</span><br><span class="line">	  &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 播放 movieClip 爆炸动效</span></span><br><span class="line">  playAnimation() &#123;&#125;</span><br><span class="line">  <span class="comment">// 射击</span></span><br><span class="line">  shoot() &#123;&#125;</span><br><span class="line">  <span class="comment">// 检测碰撞</span></span><br><span class="line">  isCollideWith() &#123;&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>player/Player.ts 用户机类</strong><br>创建用户飞机、用户 level （根据 level  发射不同的子弹数量）、发射子弹、碰撞检测</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Player <span class="keyword">extends</span> egret.Sprite &#123;</span><br><span class="line">	<span class="comment">// 玩家等级，1 到 3，表现为玩家的子弹数量</span></span><br><span class="line">	playerLevel: <span class="built_in">number</span> = <span class="number">1</span>;</span><br><span class="line">	...</span><br><span class="line">	...</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 设置和获取玩家等级</span></span><br><span class="line">	<span class="keyword">get</span> level() &#123;</span><br><span class="line">	    <span class="keyword">return</span> <span class="keyword">this</span>.playerLevel;</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">set</span> level(level) &#123;</span><br><span class="line">	    <span class="keyword">this</span>.playerLevel = <span class="built_in">Math</span>.min(level, <span class="number">3</span>);</span><br><span class="line">	&#125;		</span><br><span class="line">    <span class="comment">// 射击</span></span><br><span class="line">    shoot() &#123;&#125;</span><br><span class="line">    <span class="comment">// 检测碰撞</span></span><br><span class="line">    isCollideWith() &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>player/Bullet.ts 子弹类</strong><br>这个类比较简单了，就只有初始化其位置和速度，然后更新子弹的位置。</p>
+<p><strong>对象池  common/Pool.ts 类</strong><br>使用对象池，创建敌机和子弹类，可以回收对象，不用重复创建多个对象，优化性能。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 简易的对象池实现</span></span><br><span class="line"><span class="comment"> * 用于对象的存贮和重复使用</span></span><br><span class="line"><span class="comment"> * 可以有效减少对象创建开销和避免频繁的垃圾回收</span></span><br><span class="line"><span class="comment"> * 提高游戏性能</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> Pool &#123;</span><br><span class="line">  poolDic;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.poolDic = &#123;&#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> instance: Pool;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> getInstance(): Pool &#123;</span><br><span class="line">    <span class="keyword">if</span> (!Pool.instance) &#123;</span><br><span class="line">      Pool.instance = <span class="keyword">new</span> Pool();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> Pool.instance;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 根据对象标识符</span></span><br><span class="line"><span class="comment">   * 获取对应的对象池</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  getPoolBySign(name) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.poolDic[name] || (<span class="keyword">this</span>.poolDic[name] = [])</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">  * 根据传入的对象标识符，查询对象池</span></span><br><span class="line"><span class="comment">  * 对象池为空创建新的类，否则从对象池中取</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  getItemByClass(name, className, properties?:<span class="built_in">any</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> pool = <span class="keyword">this</span>.getPoolBySign(name);</span><br><span class="line">    <span class="keyword">if</span> (pool.length === <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> className(properties)</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">if</span> (!properties) &#123;</span><br><span class="line">      <span class="keyword">return</span> pool.shift();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> index = pool.findIndex(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">Object</span>.keys(properties).every(<span class="function"><span class="params">property</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> item[property] === properties[property];</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">// console.log(index);</span></span><br><span class="line">    <span class="keyword">return</span> index !== <span class="number">-1</span> ? pool.splice(index, <span class="number">1</span>)[<span class="number">0</span>] : <span class="keyword">new</span> className(properties)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 将对象回收到对象池</span></span><br><span class="line"><span class="comment">   * 方便后续继续使用</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  recover(name, instance) &#123;</span><br><span class="line">    <span class="keyword">this</span>.getPoolBySign(name).push(instance)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Databus.ts 类</strong><br>游戏的数据状态，管理游戏数据。reset 重置游戏数据、回收子弹和敌机</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">class</span> Databus &#123;</span><br><span class="line">	<span class="comment">// 分数，表现为击杀 enemy 数量</span></span><br><span class="line">    scores;</span><br><span class="line">    <span class="comment">// 子弹数组</span></span><br><span class="line">    bullets;</span><br><span class="line">    <span class="comment">// enemy 数组</span></span><br><span class="line">    enemys;</span><br><span class="line">    <span class="comment">// 游戏是否结束</span></span><br><span class="line">    gameOver: <span class="built_in">boolean</span>;</span><br><span class="line">    <span class="comment">// frame 记录</span></span><br><span class="line">    frame: <span class="built_in">number</span>;</span><br><span class="line">    pool: Pool;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">  * 回收敌人，进入对象池</span></span><br><span class="line"><span class="comment">  * 此后不进入帧循环</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  removeEnemey(enemy) &#123;</span><br><span class="line">    <span class="keyword">let</span> temp = <span class="keyword">this</span>.enemys.shift();</span><br><span class="line">    temp.visible = <span class="literal">false</span>;</span><br><span class="line">    Pool.getInstance().recover(<span class="string">'enemy'</span>, enemy);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 回收子弹，进入对象池</span></span><br><span class="line"><span class="comment">   * 此后不进入帧循环</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  removeBullets(bullet) &#123;</span><br><span class="line">    <span class="keyword">const</span> index = <span class="keyword">this</span>.bullets.findIndex(<span class="function"><span class="params">b</span> =&gt;</span> b === bullet);</span><br><span class="line">    bullet.visible = <span class="literal">false</span></span><br><span class="line">    <span class="keyword">this</span>.bullets.splice(index, <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">this</span>.pool.recover(<span class="string">'bullet'</span>, bullet)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>分别创建了游戏中需要用到的类后，就可以在 GameScene.ts 页面写游戏的玩法逻辑了。</p>
+<p><strong>GemeScene.ts</strong><br>游戏时场景页，监听用户交互（用户滑动，飞机也跟着移动），监听 ENTER_FRAME 事件，每帧进行子弹和飞机的移动，并检测是否发生碰撞，执行相应操作。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> SceneGame <span class="keyword">extends</span> egret.DisplayObjectContainer &#123;</span><br><span class="line">	...</span><br><span class="line">	...</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 创建用户飞机，并开始监听事件。</span></span><br><span class="line">	start() &#123;</span><br><span class="line">	    <span class="keyword">this</span>.createHero();</span><br><span class="line">	    <span class="keyword">this</span>.addEventListener(egret.Event.ENTER_FRAME, <span class="keyword">this</span>.onEnterFrame, <span class="keyword">this</span>);</span><br><span class="line">	    <span class="keyword">this</span>.touchEnabled = <span class="literal">true</span>;</span><br><span class="line">	    <span class="keyword">this</span>.addEventListener(egret.TouchEvent.TOUCH_BEGIN, <span class="keyword">this</span>.touchBegin, <span class="keyword">this</span>);</span><br><span class="line">	    <span class="keyword">this</span>.addEventListener(egret.TouchEvent.TOUCH_END, <span class="keyword">this</span>.touchEnd, <span class="keyword">this</span>);</span><br><span class="line">	</span><br><span class="line">	    <span class="keyword">this</span>.back_home.touchEnabled = <span class="literal">true</span>;</span><br><span class="line">	    <span class="keyword">this</span>.back_home.addEventListener(egret.TouchEvent.TOUCH_TAP, <span class="keyword">this</span>.toBegin, <span class="keyword">this</span>);</span><br><span class="line">	  &#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 用户飞机移动距离 = 开始位置 + （移动中的位置 - 开始时点击的位置）</span></span><br><span class="line">	<span class="keyword">private</span> touchMove(e: egret.TouchEvent) &#123;</span><br><span class="line">	    <span class="keyword">if</span> (<span class="keyword">this</span>.isTouching) &#123;</span><br><span class="line">	      <span class="keyword">this</span>.player.x = <span class="keyword">this</span>.startPoint.x + (e.stageX - <span class="keyword">this</span>.downPoint.x);</span><br><span class="line">	      <span class="keyword">this</span>.player.y = <span class="keyword">this</span>.startPoint.y + (e.stageY - <span class="keyword">this</span>.downPoint.y);</span><br><span class="line">	    &#125;</span><br><span class="line">	  &#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 游戏每帧执行的方法</span></span><br><span class="line">	<span class="keyword">private</span> onEnterFrame() &#123;</span><br><span class="line">		 <span class="comment">//检测游戏是否结束</span></span><br><span class="line">	    <span class="keyword">if</span> (Databus.getInstance().gameOver) &#123;</span><br><span class="line">	      <span class="keyword">this</span>.gameEnd();</span><br><span class="line">	      <span class="keyword">return</span>;</span><br><span class="line">	    &#125;</span><br><span class="line">	    <span class="comment">// 背景移动</span></span><br><span class="line">	    <span class="keyword">this</span>.bg01MoveUtil.onEnterFrame();</span><br><span class="line">	    <span class="keyword">this</span>.bg02MoveUtil.onEnterFrame();</span><br><span class="line">	    <span class="comment">// 生成敌机</span></span><br><span class="line">	    <span class="keyword">this</span>.enemyGenerate();</span><br><span class="line">		<span class="comment">// 敌机移动、发射子弹</span></span><br><span class="line">		<span class="comment">// 全局碰撞检测</span></span><br><span class="line">		<span class="keyword">this</span>.collisionDetection();</span><br><span class="line">		<span class="comment">// 更新用户分数和等级</span></span><br><span class="line">		Player.getInstance().level = <span class="built_in">Math</span>.max(<span class="number">1</span>, <span class="built_in">Math</span>.ceil(Databus.getInstance().scores / <span class="number">30</span>));</span><br><span class="line">		<span class="keyword">this</span>.userScores.text = Databus.getInstance().scores.toString();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>开发时遇到问题：</strong></p>
+<ol>
+<li>在用户 touchMove 时，碰到到敌机或敌机子弹时，游戏结束，弹出结束面板，此时如果用户手指还在屏幕上，就没有执行了 touchEnd 事件，所以没有移除 touchMove 事件，用户还可以滑动飞机（如果 over 面板设置了 touchEnabled = true），所以要在弹出 over 面板时，移除 touchMove 事件。</li>
+</ol>
+<p><a href="https://github.com/Harveytwo/my_egret_demo" target="_blank" rel="noopener">所有代码看 github</a></p>
+<p><a href="https://segmentfault.com/a/1190000012646888" target="_blank" rel="noopener">微信小游戏示例的详解文章</a></p>
+
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="http://yoursite.com/2018/08/07/egret-demo-wxPlane/" data-id="cjkmpjp120000wwuxpivmksh6" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/08/07/egret-demo-wxPlane/" data-id="cjkmprra30002x4uxvlnxk9hg" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -329,7 +366,7 @@
                             <a href="/2018/08/07/egret-demo-wxPlane/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(../../../../images/egret_demo/myPlane/01.png)" alt="egret_demo_wxPlane" class="thumbnail-image"></span>
     
     
 </a>
@@ -337,9 +374,9 @@
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2018/08/07/egret-demo-wxPlane/" class="title"></a></p>
-                            <p class="item-date"><time datetime="2018-08-07T14:33:43.027Z" itemprop="datePublished">2018-08-07</time></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/egret/">egret</a></p>
+                            <p class="item-title"><a href="/2018/08/07/egret-demo-wxPlane/" class="title">egret_demo_wxPlane</a></p>
+                            <p class="item-date"><time datetime="2018-08-07T14:33:42.000Z" itemprop="datePublished">2018-08-07</time></p>
                         </div>
                     </li>
                 
@@ -432,7 +469,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/egret/">egret</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/什么/">什么</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/什么/纳尼/">纳尼</a><span class="category-list-count">1</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/egret/">egret</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/什么/">什么</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/什么/纳尼/">纳尼</a><span class="category-list-count">1</span></li></ul></li></ul>
         </div>
     </div>
 
@@ -452,7 +489,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/egret/">egret</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es6/">es6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gameDemo/">gameDemo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typescript/">typescript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wx-game/">wx-game</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/egret/">egret</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es6/">es6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gameDemo/">gameDemo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typescript/">typescript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wx-game/">wx-game</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -462,7 +499,7 @@
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/egret/" style="font-size: 20px;">egret</a> <a href="/tags/es6/" style="font-size: 10px;">es6</a> <a href="/tags/gameDemo/" style="font-size: 10px;">gameDemo</a> <a href="/tags/typescript/" style="font-size: 20px;">typescript</a> <a href="/tags/wx-game/" style="font-size: 10px;">wx-game</a>
+            <a href="/tags/egret/" style="font-size: 20px;">egret</a> <a href="/tags/es6/" style="font-size: 10px;">es6</a> <a href="/tags/gameDemo/" style="font-size: 15px;">gameDemo</a> <a href="/tags/typescript/" style="font-size: 20px;">typescript</a> <a href="/tags/wx-game/" style="font-size: 10px;">wx-game</a>
         </div>
     </div>
 
