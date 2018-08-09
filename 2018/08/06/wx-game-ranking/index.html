@@ -10,20 +10,22 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="" />
+        <meta name="keywords" content="egret,wx_game" />
     
-    <meta name="description" content="养成码字记录的习惯哦~~">
-<meta name="keywords" content="思密达 simida blog Harvey nanqiang lin">
+    <meta name="description" content="weChat game ranking目录关系链数据使用指南微信小游戏排行榜 关系链数据使用指南今天来总结一下写微信小游戏的排行榜。微信小游戏，可以借助于微信的开放数据域，丰富了游戏的社交玩法，比如：好友之间的游戏排名、群组里面成员排名等。 一个微信用户的关系链数据包括两部分：   该用户好友的用户数据，wx.getFriendCloudStorage() 获取当前用户也玩该小游戏的好友的用户数据">
+<meta name="keywords" content="egret,wx_game">
 <meta property="og:type" content="article">
 <meta property="og:title" content="wx_game_ranking">
 <meta property="og:url" content="http://yoursite.com/2018/08/06/wx-game-ranking/index.html">
 <meta property="og:site_name" content="思密达的 blog">
-<meta property="og:description" content="养成码字记录的习惯哦~~">
+<meta property="og:description" content="weChat game ranking目录关系链数据使用指南微信小游戏排行榜 关系链数据使用指南今天来总结一下写微信小游戏的排行榜。微信小游戏，可以借助于微信的开放数据域，丰富了游戏的社交玩法，比如：好友之间的游戏排名、群组里面成员排名等。 一个微信用户的关系链数据包括两部分：   该用户好友的用户数据，wx.getFriendCloudStorage() 获取当前用户也玩该小游戏的好友的用户数据">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-06T14:33:51.033Z">
+<meta property="og:image" content="http://yoursite.com/images/wx_game_ranking/01.png">
+<meta property="og:updated_time" content="2018-08-09T14:52:03.930Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="wx_game_ranking">
-<meta name="twitter:description" content="养成码字记录的习惯哦~~">
+<meta name="twitter:description" content="weChat game ranking目录关系链数据使用指南微信小游戏排行榜 关系链数据使用指南今天来总结一下写微信小游戏的排行榜。微信小游戏，可以借助于微信的开放数据域，丰富了游戏的社交玩法，比如：好友之间的游戏排名、群组里面成员排名等。 一个微信用户的关系链数据包括两部分：   该用户好友的用户数据，wx.getFriendCloudStorage() 获取当前用户也玩该小游戏的好友的用户数据">
+<meta name="twitter:image" content="http://yoursite.com/images/wx_game_ranking/01.png">
     
 
     
@@ -136,7 +138,7 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    未分类
+    <a class="page-title-link" href="/categories/egret/">egret</a>
     </h1>
 </div>
                         <div class="main-body-content">
@@ -163,18 +165,65 @@
     </div>
 
                 
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/egret/">egret</a>, <a class="tag-link" href="/tags/wx-game/">wx_game</a>
+    </div>
+
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            
+            <h1 id="weChat-game-ranking"><a href="#weChat-game-ranking" class="headerlink" title="weChat game ranking"></a>weChat game ranking</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p><a href="#relation_link_guide">关系链数据使用指南</a><br><a href="#wx_game_ranking">微信小游戏排行榜</a></p>
+<p></p><h2 id="relation_link_guide">关系链数据使用指南</h2><br>今天来总结一下写微信小游戏的排行榜。<br>微信小游戏，可以借助于微信的<strong>开放数据域</strong>，丰富了游戏的社交玩法，比如：好友之间的游戏排名、群组里面成员排名等。<p></p>
+<p>一个微信用户的关系链数据包括两部分：</p>
+<blockquote>
+<ol>
+<li>该用户好友的用户数据，<strong>wx.getFriendCloudStorage()</strong> 获取当前用户也玩该小游戏的好友的用户数据</li>
+<li>该用户所在的某个群的群成员的用户数据，<strong>wx.getGroupCloudStorage()</strong> 获取当前用户在某个群中也玩该小游戏的成员的用户数据</li>
+</ol>
+</blockquote>
+<p>返回的数据，如下图：</p>
+<p><img src="../../../../images/wx_game_ranking/01.png" alt="微信小游戏排行榜" style="width:400px;"></p>
+<p><a href="https://developers.weixin.qq.com/minigame/dev/tutorial/open-ability/open-data.html" target="_blank" rel="noopener">更多详细的介绍，看官方文档</a></p>
+<p><strong>总结：</strong><br>其实，就是<strong>通过调用 wx.setUserCloudStorage() </strong>把用户数据托管于微信的平台，然后需要的时候，向微信发起请求，拉取相关数据（这里数据是<strong>没有排序</strong>的，需要自己处理）。<br>但是，当小游戏启动开放数据域，小游戏环境会对主域和开放数据域应用一些<strong>限制</strong>。</p>
+<p><img src="../../../../images/wx_game_ranking/data-flow.png" alt="微信小游戏排行榜" style="width:400px;"></p>
+<p><strong>限制：</strong></p>
+<blockquote>
+<ol>
+<li>sharedCanvas 只能被绘制到上屏 canvas 上。</li>
+<li>上屏 canvas 不能调用 toDataURL，其 context 不能调用 getImageData。</li>
+<li>sharedCanvas 不能调用 toDataURL 和 getContext。</li>
+<li>不能将上屏 canvas 和 sharedCanvas 以任意形式绘制到其他 canvas 上，包括 drawImage、createPattern、texImage2D、texSubImage2D。</li>
+<li>sharedCanvas 的宽高只能在主域设置</li>
+</ol>
+</blockquote>
+<p>这里有几个概念解释一下：</p>
+<ol>
+<li>开放数据域：是一个封闭、独立的 JavaScript 作用域。要让代码运行在开放数据域，需要在 game.json 中添加配置项 openDataContext 指定开放数据域的代码目录。</li>
+<li>主域：除 src/myOpenDataContext（这个是开放数据域代码目录） 以外是 主域的代码目录。</li>
+<li>上屏 canvas ：在整个小游戏代码中首次调用 wx.createCanvas() 创建的是上屏 Canvas，之后调用则创建的是离屏 Canvas。如果你的项目中使用了官方提供的 Adapter 即 weapp-adapter.js，那么你此时创建的会是一个离屏 Canvas。因为在 weapp-adapter.js 已经调用了一次 wx.createCanvas()，并把返回的 canvas 作为全局变量暴露出来。</li>
+<li>sharedCanvas ：是主域和开放数据域都可以访问的一个离屏画布。在<strong>开放数据域</strong>调用 wx.getSharedCanvas() 将返回 sharedCanvas。而<strong>在主域中</strong>可以通过开放数据域实例访问 sharedCanvas，通过 drawImage() 方法可以将 sharedCanvas 绘制到上屏画布。</li>
+</ol>
+<p><strong>注意：</strong></p>
+<blockquote>
+<ol>
+<li>开放数据域不能向主域发送消息。</li>
+<li>主域可以向开放数据域发送消息</li>
+<li>所以开放数据域只能监听主域发送过来的消息，然后根据类型，触发不同的行为。</li>
+</ol>
+</blockquote>
+<p><img src="../../../../images/wx_game_ranking/canvas-limit.png" alt="微信小游戏排行榜" style="width:400px;"></p>
+<p></p><h2 id="wx_game_ranking">微信小游戏排行榜</h2><br>通过上面的一些概念的简单介绍，现在就开始写一个排行榜了。<br>即在 sharedCanvas 上绘制排行榜，（<strong>大写的注意：</strong>绘制排行榜必须使用原生的 canvas 来写，不能使用框架）。通过主域发来的消息，判断类型，执行相关操作。<p></p>
+<p><a href="https://segmentfault.com/a/1190000015034592" target="_blank" rel="noopener">这里一篇文章，更详细介绍了绘制排行榜的相关问题。</a></p>
+
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="http://yoursite.com/2018/08/06/wx-game-ranking/" data-id="cjkjtfpwy000m08ux24xt11lg" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://yoursite.com/2018/08/06/wx-game-ranking/" data-id="cjkmomn33001cr0uxcut4efk5" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -349,7 +398,7 @@
                             <a href="/2018/08/07/egret-demo-wxPlane/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(../../../../images/egret_demo/myPlane/01.png)" alt="egret_demo_wxPlane" class="thumbnail-image"></span>
     
     
 </a>
@@ -357,7 +406,7 @@
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/egret/">egret</a></p>
                             <p class="item-title"><a href="/2018/08/07/egret-demo-wxPlane/" class="title">egret_demo_wxPlane</a></p>
                             <p class="item-date"><time datetime="2018-08-07T14:33:42.000Z" itemprop="datePublished">2018-08-07</time></p>
                         </div>
@@ -369,7 +418,7 @@
                             <a href="/2018/08/06/wx-game-ranking/" class="thumbnail">
     
     
-        <span class="thumbnail-image thumbnail-none"></span>
+        <span style="background-image:url(../../../../images/wx_game_ranking/01.png)" alt="wx_game_ranking" class="thumbnail-image"></span>
     
     
 </a>
@@ -377,7 +426,7 @@
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/egret/">egret</a></p>
                             <p class="item-title"><a href="/2018/08/06/wx-game-ranking/" class="title">wx_game_ranking</a></p>
                             <p class="item-date"><time datetime="2018-08-06T14:33:50.000Z" itemprop="datePublished">2018-08-06</time></p>
                         </div>
@@ -389,7 +438,7 @@
                             <a href="/2018/07/31/egret-demo-racingCar/" class="thumbnail">
     
     
-        <span style="background-image:url(../../../../images/egret_demo/racingCar.png)" alt="egret_demo_racingCar" class="thumbnail-image"></span>
+        <span style="background-image:url(../../../../images/egret_demo/racingCar/racingCar.png)" alt="egret_demo_racingCar" class="thumbnail-image"></span>
     
     
 </a>
@@ -452,7 +501,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/egret/">egret</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/什么/">什么</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/什么/纳尼/">纳尼</a><span class="category-list-count">1</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/egret/">egret</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/什么/">什么</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/什么/纳尼/">纳尼</a><span class="category-list-count">1</span></li></ul></li></ul>
         </div>
     </div>
 
@@ -472,7 +521,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/egret/">egret</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es6/">es6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gameDemo/">gameDemo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typescript/">typescript</a><span class="tag-list-count">5</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/egret/">egret</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es6/">es6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gameDemo/">gameDemo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typescript/">typescript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wx-game/">wx_game</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -482,7 +531,7 @@
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/egret/" style="font-size: 15px;">egret</a> <a href="/tags/es6/" style="font-size: 10px;">es6</a> <a href="/tags/gameDemo/" style="font-size: 10px;">gameDemo</a> <a href="/tags/typescript/" style="font-size: 20px;">typescript</a>
+            <a href="/tags/egret/" style="font-size: 20px;">egret</a> <a href="/tags/es6/" style="font-size: 10px;">es6</a> <a href="/tags/gameDemo/" style="font-size: 15px;">gameDemo</a> <a href="/tags/typescript/" style="font-size: 20px;">typescript</a> <a href="/tags/wx-game/" style="font-size: 10px;">wx_game</a>
         </div>
     </div>
 
